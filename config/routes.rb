@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :features
+
   resources :vehicles
 
   resources :categories
