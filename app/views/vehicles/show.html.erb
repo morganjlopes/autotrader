@@ -1,7 +1,17 @@
 <p>
+  <%= @vehicle.user.email if @vehicle.user.present? %>
+</p>
+
+<p>
   <strong>Category:</strong>
-  <%= @vehicle.category.make.name %>
-  <%= @vehicle.category.name %>
+  <%- if @vehicle.category.present? %>
+    <%- if @vehicle.category.make.present? %>
+      <%= @vehicle.category.make.name %>
+    <% end %>
+    
+    <%= @vehicle.category.name %>
+
+  <% end %>
 </p>
 
 <p>
