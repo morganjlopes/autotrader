@@ -28,6 +28,10 @@ class VehiclesController < ApplicationController
 
     respond_to do |format|
       if @vehicle.save
+        
+        # Vehicles Controller
+        UserMailer.vehicle_confirmation(@vehicle.id).deliver_later
+
         format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
         format.json { render :show, status: :created, location: @vehicle }
       else
